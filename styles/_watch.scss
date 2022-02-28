@@ -1,0 +1,100 @@
+
+.watch {
+  .sun{  //STYLING FOR THE SUN
+    width: 17em;
+    height: 17em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;
+    background: $sun-gradient;
+    box-shadow: $sun-shadow;
+    position: relative;
+
+    .clock { // STYLING FOR THE ANALOG CLOCK
+      width : 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: relative;
+      
+      .number {
+      --rotation : 0;
+      font-size: 1rem;
+      font-weight: 700;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transform: rotate(var(--rotation)) ;
+      }
+      
+      .number1 { --rotation: 30deg; }
+      .number2 { --rotation: 60deg; }
+      .number3 { --rotation: 90deg; }
+      .number4 { --rotation: 120deg; }
+      .number5 { --rotation: 150deg; }
+      .number6 { --rotation: 180deg; }
+      .number7 { --rotation: 210deg; }
+      .number8 { --rotation: 240deg; }
+      .number9 { --rotation: 270deg; }
+      .number10 { --rotation: 300deg; }
+      .number11 { --rotation: 330deg; }
+
+      .hand {
+        --rotation: 0;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transform-origin: bottom;
+        transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+      }
+
+      .hand.hour {
+        width: 4px;
+        height: 25%;  
+        background-color: $font-color;
+      }
+
+      .hand.minute {
+        width: 4px;
+        height: 40%;  
+        background-color: $font-color;
+      }
+
+      .hand.second {
+        width: 2px;
+        height: 40%;  
+        background-color:rgb(244, 67, 67);
+      }
+  
+      .circle {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background-color: $font-color;;
+      }
+
+      // STYLING FOR DIGITAL WATCH
+      .digital-watch-container {
+        width:50%;
+        transform: translate(47%, 500%);
+        font-size: 0.8em;
+        letter-spacing: 2px;
+        font-weight: 500;
+        position: absolute;
+        z-index:1;
+        border-radius: 10px;
+        background: linear-gradient(145deg, #d8cb6a, #fff17e);
+        box-shadow:  22px 22px 44px #978e4a, -22px -22px 44px #ffffa2;  //NEOMORPHIC STYLING (https://neumorphism.io/#e0e0e0)
+        padding: 5px;
+      }
+    }
+  }
+}

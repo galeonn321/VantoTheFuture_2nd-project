@@ -1,39 +1,75 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding:0;
- 
+// IMPORTS
+
+@import "./variables";
+@import "./watch";
+@import "./timer";
+@import "./alarm";
+@import "./weather";
+@import "./button";
+
+// APP CSS
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: $font-color;
 }
 
-main{
-    background-image: linear-gradient(#fe75fe,#7a04eb,#120458);
-    background-repeat: no-repeat;
-    height:100vh;
-    
-}
+body {
+  background: $background-twilight;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 
-#clock__watch h1{
-    font-style: italic;
-    width: 0px;
-    height: 0px;
-}
+  .watch-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 
-.container__box{
+    .bottom-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100vw;
+
+      @media only screen and (max-width:900px){
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+  
+  //STYLING FOR MOVING VAN & ANIMATION
+
+  .surface {
+    height: 150px;
+    width: 500%;
+    background: url("../assets/images/Img_02.png");
+    display: block;
     position: absolute;
-    width:500px;
-    height:500px;
-    left:140vh;
-    top:20vh;
+    bottom:0;
+    left: 0;
+    background-repeat: repeat-x;
+    animation: moveRight 6s linear infinite;
+  }
+
+  .car {
+    position: absolute;
+    bottom: 50px;
+    right: 30%;
+    animation: suspension 1s linear infinite;
+  }
+
+  @keyframes moveRight {
+    100% { transform: translate(-1300px)};
+  }
+
+  @keyframes suspension {
+    100% { transform: translateY(-1px)};
+    50% { transform: translateY(2px);};
+    0% { transform: translateY(-1px);};
+  }
 }
-.container__box h1{
-    position:relative;
-    top:150px;
-    left:210px;
-}
-
-.sun_image{
-    
-}
-
-
-
